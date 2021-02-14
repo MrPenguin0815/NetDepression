@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.netdepression.MyViewUtils;
+import com.example.netdepression.R;
+
 public class VerificationLoginActivity extends AppCompatActivity {
 
     @Override

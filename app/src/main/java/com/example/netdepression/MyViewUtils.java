@@ -8,6 +8,8 @@ import android.view.Window;
 import android.view.WindowManager;
 
 public class MyViewUtils {
+
+
     public static void setSysBarTransparent(Activity activity){
         //设置顶部状态栏和底部导航栏透明
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -20,4 +22,8 @@ public class MyViewUtils {
             window.setNavigationBarColor(Color.TRANSPARENT);
         }
     }
+
+
+
+
 }

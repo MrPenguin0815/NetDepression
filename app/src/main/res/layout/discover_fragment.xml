@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/drawer_layout">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -21,18 +15,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:fitsSystemWindows="true">
+                android:orientation="vertical">
+
+                <include layout="@layout/discover_title"/>
+                <include layout="@layout/discover_card1"/>
+                <include layout="@layout/discover_card2"/>
+
 
             </LinearLayout>
 
         </ScrollView>
 
-
-        <fragment
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"/>
-
-    </androidx.drawerlayout.widget.DrawerLayout>
 </FrameLayout>
