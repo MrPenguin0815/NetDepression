@@ -10,5 +10,6 @@
     <color name="can_not_click">#CBE9F4</color>
     <color name="can_click">#25B3E1</color>
     <color name="unselected">#dbdbdb</color>
+    <color name="main_blue_gray">#1B262B</color>
 
 </resources>

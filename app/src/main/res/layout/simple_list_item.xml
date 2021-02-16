@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="5dp">
+
+    <ImageView
+        android:id="@+id/simple_cover_img1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginRight="15dp"
+        android:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:id="@+id/main_title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/simple_cover_img1"
+        android:text="主标题"
+        android:textSize="16sp"
+        android:textColor="@color/main_blue_gray"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main_title1"
+        android:layout_alignLeft="@id/main_title1"
+        android:text="副标题"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_marginRight="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="收藏"
+        android:textSize="12sp"
+        android:textColor="@color/can_click"
+        android:background="@drawable/login_frame"
+        android:layout_gravity="center_vertical"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20sp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"/>
+
+
+</RelativeLayout>

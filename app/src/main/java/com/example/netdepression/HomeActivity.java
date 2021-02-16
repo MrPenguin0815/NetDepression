@@ -6,24 +6,16 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.netdepression.indicator.CommonNavigator;
-import com.example.netdepression.indicator.CommonNavigatorAdapter;
-import com.example.netdepression.indicator.CommonPagerTitleView;
-import com.example.netdepression.indicator.IPagerIndicator;
-import com.example.netdepression.indicator.IPagerTitleView;
-import com.example.netdepression.indicator.MagicIndicator;
-import com.example.netdepression.indicator.ViewPagerHelper;
+import com.example.netdepression.fragments.DiscoverFragment;
+import com.example.netdepression.fragments.ClassifyFragment;
+import com.example.netdepression.fragments.MyInfoFragment;
+import com.example.netdepression.utils.MyViewUtils;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -33,22 +25,14 @@ public class HomeActivity extends AppCompatActivity {
     ViewPager viewPager;
     TabLayout tabLayout;
     int[] icInts = {R.drawable.ic_discover02,R.drawable.ic_broadcast01,R.drawable.ic_my01};
-    String[] tabTitles = {"发现","播客","我的"};
+    String[] tabTitles = {"发现","分类","我的"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        //设置顶部透明
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
-            window.setStatusBarColor(Color.TRANSPARENT);
-        }
+        MyViewUtils.setStatusBarTransparent(this);
         viewPager = findViewById(R.id.view_pager);
         tabLayout = findViewById(R.id.tabLayout);
         tabLayout.setSelectedTabIndicator(null);
@@ -57,9 +41,9 @@ public class HomeActivity extends AppCompatActivity {
 
         //初始化FragmentLists
         List<Fragment> FragmentLists = new ArrayList<>();
-        FragmentLists.add(new FirstFragment());
-        FragmentLists.add(new SecondFragment());
-        FragmentLists.add(new ThirdFragment());
+        FragmentLists.add(new DiscoverFragment());
+        FragmentLists.add(new ClassifyFragment());
+        FragmentLists.add(new MyInfoFragment());
 
 
 
@@ -76,9 +60,6 @@ public class HomeActivity extends AppCompatActivity {
             public int getCount() {
                 return FragmentLists.size();
             }
-
-
-
 
         };
 
