@@ -5,30 +5,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.example.netdepression.R;
-import com.example.netdepression.utils.MyViewUtils;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
-public class MyInfoFragment extends Fragment {
+public class MyInfoFragment extends BaseFragment {
 
 
-    @Nullable
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    protected View onSubViewLoaded(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.my_fragment,null);
         initCollapsingToolbar(view);
         return view;
     }
-
 
 
     private void initCollapsingToolbar(View view) {

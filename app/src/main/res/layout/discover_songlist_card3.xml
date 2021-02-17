@@ -19,7 +19,7 @@
             android:layout_weight="6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/exclusive_occasion_list"
+            android:text="@string/video_set"
             android:textSize="20sp"
             android:textColor="#2B2C2C"
             android:layout_marginStart="15dp" />
@@ -47,6 +47,6 @@
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/card_recycler1"/>
+        android:id="@+id/card_recycler3"/>
 
 </LinearLayout>

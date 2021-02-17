@@ -18,7 +18,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        Log.e("XXX", "getCount: " + cardViews.size());
+//        Log.e("XXX", "getCount: " + cardViews.size());
         return cardViews.size();
     }
 

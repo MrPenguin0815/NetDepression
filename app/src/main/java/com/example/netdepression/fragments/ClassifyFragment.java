@@ -11,10 +11,10 @@ import androidx.fragment.app.Fragment;
 
 import com.example.netdepression.R;
 
-public class ClassifyFragment extends Fragment {
-    @Nullable
+public class ClassifyFragment extends BaseFragment{
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    protected View onSubViewLoaded(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.second_layout,null);
         return view;
     }

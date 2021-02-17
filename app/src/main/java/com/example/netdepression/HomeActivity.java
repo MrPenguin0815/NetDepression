@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.example.netdepression.fragments.DiscoverFragment;
 import com.example.netdepression.fragments.ClassifyFragment;
 import com.example.netdepression.fragments.MyInfoFragment;
-import com.example.netdepression.utils.MyViewUtils;
+import com.example.netdepression.utils.MyViewUtil;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -32,7 +32,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        MyViewUtils.setStatusBarTransparent(this);
+        MyViewUtil.setStatusBarTransparent(this);
         viewPager = findViewById(R.id.view_pager);
         tabLayout = findViewById(R.id.tabLayout);
         tabLayout.setSelectedTabIndicator(null);

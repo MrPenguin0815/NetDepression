@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.netdepression.utils.MyViewUtils;
+import com.example.netdepression.utils.MyViewUtil;
 
 public class VerificationLoginActivity extends AppCompatActivity {
 
@@ -12,6 +12,6 @@ public class VerificationLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sms_verification_login);
-        MyViewUtils.setSysBarTransparent(this);
+        MyViewUtil.setSysBarTransparent(this);
     }
 }

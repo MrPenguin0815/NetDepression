@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.netdepression.utils.MyViewUtils;
+import com.example.netdepression.utils.MyViewUtil;
 
 public class LaunchActivity extends AppCompatActivity {
 
@@ -15,7 +15,7 @@ public class LaunchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.launch_page);
-        MyViewUtils.setSysBarTransparent(this);
+        MyViewUtil.setSysBarTransparent(this);
         TextView loginBtn = findViewById(R.id.login_btn);
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
