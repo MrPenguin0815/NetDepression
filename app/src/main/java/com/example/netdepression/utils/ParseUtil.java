@@ -5,6 +5,8 @@ import android.util.Log;
 import com.example.netdepression.base.CardlistItem;
 import com.example.netdepression.gson.Creative;
 import com.example.netdepression.gson.PlaylistBlock;
+import com.example.netdepression.gson.PlaylistItem;
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,7 +38,7 @@ public class ParseUtil {
 
 
     /**
-     *将playlistBlock打包成数据源
+     *将playlistBlock打包成数据源，适用于creative里面只包含一个resource的情况
      */
     public static List<CardlistItem> handlePlaylistBlock(PlaylistBlock playlistBlock) {
         if(playlistBlock == null){
@@ -51,5 +53,25 @@ public class ParseUtil {
            cardlistItems.add(cardlistItem);
         }
         return cardlistItems;
+    }
+
+
+    public static List<PlaylistItem> handleMyInfoResponse(String response){
+        List<PlaylistItem> items = new ArrayList<>();
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            JSONArray jsonArray = jsonObject.getJSONArray("playlist");
+            for (int i = 0; i < jsonArray.length(); i++) {
+                String itemContent = jsonArray.getJSONObject(i).toString();
+                PlaylistItem item = new Gson().fromJson(itemContent,PlaylistItem.class);
+                items.add(item);
+            }
+
+            return items;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 }

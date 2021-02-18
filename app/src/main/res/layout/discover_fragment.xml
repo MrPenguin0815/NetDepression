@@ -31,10 +31,11 @@
 
 
             <include layout="@layout/discover_songlist_card" />
+            <include layout="@layout/discover_tri_card" />
             <include layout="@layout/discover_songlist_card2" />
+            <include layout="@layout/discover_sec_card"/>
             <include layout="@layout/discover_songlist_card3" />
 
-            <include layout="@layout/discover_simple_list_card" />
 
 
 

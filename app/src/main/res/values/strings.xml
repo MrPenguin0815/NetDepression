@@ -7,4 +7,6 @@
     <string name="exclusive_occasion_list">专属场景歌单</string>
     <string name="todo">TODO</string>
     <string name="video_set">视频合辑</string>
+    <string name="sub_title">副标题副标题副标题</string>
+    <string name="main_title">主标题</string>
 </resources>

@@ -23,7 +23,7 @@ public class RippleImageView extends RelativeLayout {
     private static final int SHOW_SPACING_TIME=700;
     private static final int MSG_WAVE2_ANIMATION = 1;
     private static final int MSG_WAVE3_ANIMATION = 2;
-    private static final int IMAMGEVIEW_SIZE = 80;
+    private static final int IMAMGEVIEW_SIZE = 50;
     /**三张波纹图片*/
     private static final int SIZE =3 ;
 
@@ -33,8 +33,7 @@ public class RippleImageView extends RelativeLayout {
     private AnimationSet [] mAnimationSet=new AnimationSet[SIZE];
     /**水波纹图片*/
     private ImageView [] imgs=new ImageView[SIZE];
-    /**中间图片id*/
-    private int imageViewId;
+
     /**中间图片*/
     private ImageView img_bg;
     /**水波纹和背景图片的大小*/
@@ -107,7 +106,7 @@ public class RippleImageView extends RelativeLayout {
         params_bg.addRule(RelativeLayout.CENTER_IN_PARENT,RelativeLayout.TRUE);
         /*添加中间图片*/
         img_bg = new CircleImageView(context);
-        Glide.with(context).load(imageViewId).into(img_bg);
+
         addView(img_bg,params_bg);
     }
 
@@ -135,7 +134,7 @@ public class RippleImageView extends RelativeLayout {
         return (int) (dipValue * scale + 0.5f);
     }
 
-    //============================对外暴露的public方法=========================================
+
     /**
      * 开始水波纹动画
      */
@@ -153,20 +152,5 @@ public class RippleImageView extends RelativeLayout {
             imgs[i].clearAnimation();
         }
     }
-    /**获取播放的速度*/
-    public int getShow_spacing_time() {
-        return show_spacing_time;
-    }
-    /**设计播放的速度，默认是800毫秒*/
-    public void setShow_spacing_time(int show_spacing_time) {
-        this.show_spacing_time = show_spacing_time;
-    }
 
-    /**
-     * 设置中间图片
-     * @param imageViewId 图片url
-     */
-    public void setImageViewId(int imageViewId) {
-        this.imageViewId = imageViewId;
-    }
 }

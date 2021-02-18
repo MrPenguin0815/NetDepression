@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="420dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:id="@+id/back">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/background_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/ic_launcher"
+                android:scaleType="centerCrop"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#4D000000"/>
+
+        </FrameLayout>
+
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_gravity="center">
+
+
+            <com.example.netdepression.views.RippleImageView
+                android:id="@+id/ri"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="#00000000"
+                app:imageViewHeigth="30dp"
+                app:imageViewWidth="30dp"
+                app:show_spacing_time="800"
+                android:layout_gravity="center"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/avatar_img"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_launcher"/>
+
+        </FrameLayout>
+
+
+
+    </FrameLayout>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center_horizontal"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:layout_anchor="@id/back"
+        android:layout_marginTop="320dp"
+        app:layout_anchorGravity="bottom|center_horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_gravity="center">
+
+
+            <TextView
+                android:id="@+id/nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="aaa"
+                android:textColor="#88CEE5"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:id="@+id/uid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nickname"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="aaa"
+                android:textSize="12sp" />
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

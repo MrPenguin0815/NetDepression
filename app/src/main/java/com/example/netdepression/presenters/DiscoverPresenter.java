@@ -41,47 +41,19 @@ public class DiscoverPresenter implements IDiscoverPresenter {
     }
 
 
-    //block[0]:HOMEPAGE_BANNER
-    //block[1]:HOMEPAGE_BLOCK_PLAYLIST_RCMD
-    //block[2]:HOMEPAGE_MUSIC_MLOG
-    //block[3]:HOMEPAGE_BLOCK_STYLE_RCMD
-    //block[4]:HOMEPAGE_MUSIC_CALENDAR
-    //block[5]:HOMEPAGE_BLOCK_OFFICIAL_PLAYLIST
-    //block[6]:HOMEPAGE_BLOCK_NEW_ALBUM_NEW_SONG
-    //block[7]:HOMEPAGE_YUNBEI_NEW_SONG
-    //block[8]:HOMEPAGE_PODCAST24
-    //block[9]:HOMEPAGE_VOICELIST_RCMD
-    //block[10]:HOMEPAGE_BLOCK_VIDEO_PLAYLIST
+
+
     @Override
     public void getDiscoverData() {
         HttpUtil.sendHttpRequest("http://sandyz.ink:3000/homepage/block/page", new HttpCallbackListener() {
             @Override
             public void onFinish(String response) {
                List<String> blockStrings = ParseUtil.handleDiscoverResponse(response);
-                for (String blockContent:blockStrings) {
-                    Block block = new Gson().fromJson(blockContent,Block.class);
-                    if("HOMEPAGE_BANNER".equals(block.blockCode)){
-                        BannerBlock bannerBlock = new Gson().fromJson(blockContent,BannerBlock.class);
-                        for (IDiscoverViewCallback callback : mCallbacks) {
-                            callback.onBannerBlockLoaded(bannerBlock);
-                        }
-                    }else if("HOMEPAGE_BLOCK_PLAYLIST_RCMD".equals(block.blockCode)){
-                        PlaylistBlock playlistBlock = new Gson().fromJson(blockContent,PlaylistBlock.class);
-                        for (IDiscoverViewCallback callback : mCallbacks) {
-                            callback.onPlaylistBlockLoaded(playlistBlock);
-                        }
-                    }else if("HOMEPAGE_BLOCK_OFFICIAL_PLAYLIST".equals(block.blockCode)) {
-                        PlaylistBlock playlistBlock = new Gson().fromJson(blockContent, PlaylistBlock.class);
-                        for (IDiscoverViewCallback callback : mCallbacks) {
-                            callback.onOfficialPlaylistBlockLoaded(playlistBlock);
-                        }
-                    }else if("HOMEPAGE_BLOCK_VIDEO_PLAYLIST".equals(block.blockCode)) {
-                        PlaylistBlock playlistBlock = new Gson().fromJson(blockContent, PlaylistBlock.class);
-                        for (IDiscoverViewCallback callback : mCallbacks) {
-                            callback.onVideoBlockLoaded(playlistBlock);
-                        }
-                    }
-                }
+               if(blockStrings != null ){
+                   for (IDiscoverViewCallback callback : mCallbacks) {
+                       callback.onCache(blockStrings);
+                   }
+               }
             }
 
             @Override
@@ -92,6 +64,46 @@ public class DiscoverPresenter implements IDiscoverPresenter {
 
     }
 
+
+
+
+
+    public void getDiscoverInfo(List<String> blockStrings){
+        for (String blockContent:blockStrings) {
+            Block block = new Gson().fromJson(blockContent,Block.class);
+            if("HOMEPAGE_BANNER".equals(block.blockCode)){
+                BannerBlock bannerBlock = new Gson().fromJson(blockContent,BannerBlock.class);
+                for (IDiscoverViewCallback callback : mCallbacks) {
+                    callback.onBannerBlockLoaded(bannerBlock);
+                }
+            }else if("HOMEPAGE_BLOCK_PLAYLIST_RCMD".equals(block.blockCode)){
+                PlaylistBlock playlistBlock = new Gson().fromJson(blockContent,PlaylistBlock.class);
+                for (IDiscoverViewCallback callback : mCallbacks) {
+                    callback.onPlaylistBlockLoaded(playlistBlock);
+                }
+            }else if("HOMEPAGE_BLOCK_OFFICIAL_PLAYLIST".equals(block.blockCode)) {
+                PlaylistBlock playlistBlock = new Gson().fromJson(blockContent, PlaylistBlock.class);
+                for (IDiscoverViewCallback callback : mCallbacks) {
+                    callback.onOfficialPlaylistBlockLoaded(playlistBlock);
+                }
+            }else if("HOMEPAGE_BLOCK_VIDEO_PLAYLIST".equals(block.blockCode)) {
+                PlaylistBlock playlistBlock = new Gson().fromJson(blockContent, PlaylistBlock.class);
+                for (IDiscoverViewCallback callback : mCallbacks) {
+                    callback.onVideoBlockLoaded(playlistBlock);
+                }
+            }else if ("HOMEPAGE_BLOCK_STYLE_RCMD".equals(block.blockCode)){
+                PlaylistBlock playlistBlock = new Gson().fromJson(blockContent, PlaylistBlock.class);
+                for (IDiscoverViewCallback callback : mCallbacks) {
+                    callback.onStyleBlockLoaded(playlistBlock);
+                }
+            }else if("HOMEPAGE_MUSIC_CALENDAR".equals(block.blockCode)) {
+                PlaylistBlock playlistBlock = new Gson().fromJson(blockContent, PlaylistBlock.class);
+                for (IDiscoverViewCallback callback : mCallbacks) {
+                    callback.onCalendarLoaded(playlistBlock);
+                }
+            }
+        }
+    }
 
 
 

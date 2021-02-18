@@ -11,5 +11,6 @@
     <color name="can_click">#25B3E1</color>
     <color name="unselected">#dbdbdb</color>
     <color name="main_blue_gray">#1B262B</color>
+    <color name="gray">#757575</color>
 
 </resources>
