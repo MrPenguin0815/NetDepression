@@ -19,6 +19,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#00FFFFFF"/>
+
             <include layout="@layout/discover_title" />
 
             <include layout="@layout/discover_carousel_layout" />
@@ -30,7 +35,7 @@
                 android:layout_marginTop="10dp" />
 
 
-            <include layout="@layout/discover_songlist_card" />
+            <include layout="@layout/discover_songlist_card1" />
             <include layout="@layout/discover_tri_card" />
             <include layout="@layout/discover_songlist_card2" />
             <include layout="@layout/discover_sec_card"/>

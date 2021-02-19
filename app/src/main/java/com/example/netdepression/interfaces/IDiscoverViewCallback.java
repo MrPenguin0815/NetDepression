@@ -19,6 +19,5 @@ public interface IDiscoverViewCallback {
 
     void onCalendarLoaded(PlaylistBlock playlistBlock);
 
-    void onCache(List<String> blockStrings);
 
 }

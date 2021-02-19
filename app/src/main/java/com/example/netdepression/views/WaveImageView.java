@@ -18,7 +18,7 @@ import com.example.netdepression.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
-public class RippleImageView extends RelativeLayout {
+public class WaveImageView extends RelativeLayout {
 
     private static final int SHOW_SPACING_TIME=700;
     private static final int MSG_WAVE2_ANIMATION = 1;
@@ -58,12 +58,12 @@ public class RippleImageView extends RelativeLayout {
     };
 
 
-    public RippleImageView(Context context) {
+    public WaveImageView(Context context) {
         super(context);
         initView(context);
     }
 
-    public RippleImageView(Context context, AttributeSet attrs) {
+    public WaveImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
         getAttributeSet(context,attrs);
         initView(context);

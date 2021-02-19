@@ -1,12 +1,15 @@
 package com.example.netdepression.presenters;
 
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
 import com.example.netdepression.gson.PlaylistItem;
 import com.example.netdepression.interfaces.HttpCallbackListener;
-import com.example.netdepression.interfaces.IDiscoverViewCallback;
 import com.example.netdepression.interfaces.IMyInfoPresenter;
 import com.example.netdepression.interfaces.IMyInfoViewCallback;
 import com.example.netdepression.utils.HttpUtil;
+import com.example.netdepression.utils.MyApplication;
 import com.example.netdepression.utils.ParseUtil;
 
 import java.util.List;
@@ -19,8 +22,6 @@ public class MyInfoPresenter implements IMyInfoPresenter {
 
     private MyInfoPresenter() {
     }
-
-    ;
 
     private static MyInfoPresenter sInstance = null;
 
@@ -45,7 +46,9 @@ public class MyInfoPresenter implements IMyInfoPresenter {
             @Override
             public void onFinish(String response) {
                 List<PlaylistItem> playlistItems = ParseUtil.handleMyInfoResponse(response);
-                mCallback.onCache(response);
+                SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(MyApplication.getContext()).edit();
+                editor.putString("playlist",response);
+                editor.apply();
                 mCallback.onPlaylistLoaded(playlistItems);
             }
             @Override

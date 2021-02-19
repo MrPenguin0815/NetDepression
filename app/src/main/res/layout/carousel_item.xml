@@ -12,7 +12,6 @@
         android:id="@+id/carousel_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="center"
-        android:src="@drawable/lunbotu01"/>
+        android:scaleType="center" />
 
 </androidx.cardview.widget.CardView>

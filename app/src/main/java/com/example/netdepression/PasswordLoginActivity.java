@@ -52,7 +52,7 @@ public class PasswordLoginActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                loginBtn.setBackgroundColor(getResources().getColor(R.color.can_click));
+                loginBtn.setBackground(getResources().getDrawable(R.drawable.login_frame2));
             }
         });
 

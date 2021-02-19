@@ -1,8 +1,9 @@
 package com.example.netdepression.presenters;
 
-import android.util.Log;
 
-import com.example.netdepression.gson.Banner;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
 import com.example.netdepression.gson.BannerBlock;
 import com.example.netdepression.gson.Block;
 import com.example.netdepression.gson.PlaylistBlock;
@@ -10,19 +11,22 @@ import com.example.netdepression.interfaces.HttpCallbackListener;
 import com.example.netdepression.interfaces.IDiscoverPresenter;
 import com.example.netdepression.interfaces.IDiscoverViewCallback;
 import com.example.netdepression.utils.HttpUtil;
+import com.example.netdepression.utils.MyApplication;
 import com.example.netdepression.utils.ParseUtil;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class DiscoverPresenter implements IDiscoverPresenter {
 
 
-    private List<IDiscoverViewCallback> mCallbacks = new ArrayList<>();
+    private final List<IDiscoverViewCallback> mCallbacks = new ArrayList<>();
 
-    private DiscoverPresenter(){};
+    private DiscoverPresenter(){}
 
     private static DiscoverPresenter sInstance = null;
 
@@ -49,11 +53,18 @@ public class DiscoverPresenter implements IDiscoverPresenter {
             @Override
             public void onFinish(String response) {
                List<String> blockStrings = ParseUtil.handleDiscoverResponse(response);
+
                if(blockStrings != null ){
                    for (IDiscoverViewCallback callback : mCallbacks) {
-                       callback.onCache(blockStrings);
+                       Set<String> set = new HashSet<>(blockStrings);
+                       SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(MyApplication.getContext()).edit();
+                       editor.putStringSet("blockStrings",set);
+                       editor.apply();
                    }
                }
+
+                assert blockStrings != null;
+                getDiscoverInfo(blockStrings);
             }
 
             @Override

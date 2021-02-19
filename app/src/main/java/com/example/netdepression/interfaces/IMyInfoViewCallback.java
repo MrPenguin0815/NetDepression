@@ -8,5 +8,4 @@ public interface IMyInfoViewCallback {
 
     void onPlaylistLoaded(List<PlaylistItem> playlistItems);
 
-    void onCache(String response);
 }

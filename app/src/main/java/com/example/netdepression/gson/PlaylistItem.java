@@ -6,9 +6,5 @@ public class PlaylistItem {
     public String playCount;
     public String trackCount;
     public String coverImgUrl;
-    public Creator creator;
-
-    public class Creator{
-        public String userId;
-    }
+    public String id;
 }

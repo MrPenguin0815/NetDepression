@@ -47,6 +47,7 @@
 
 
     <ImageView
+        android:id="@+id/choose_img"
         android:layout_width="20sp"
         android:layout_height="20sp"
         android:src="@drawable/more"

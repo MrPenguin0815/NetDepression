@@ -25,7 +25,7 @@ public class HomeActivity extends AppCompatActivity {
     ViewPager viewPager;
     TabLayout tabLayout;
     int[] icInts = {R.drawable.ic_discover02,R.drawable.ic_broadcast01,R.drawable.ic_my01};
-    String[] tabTitles = {"发现","分类","我的"};
+    String[] tabTitles = {"发现","热门","我的"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

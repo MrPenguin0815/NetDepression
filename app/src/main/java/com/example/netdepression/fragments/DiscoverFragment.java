@@ -294,16 +294,6 @@ public class DiscoverFragment extends BaseFragment implements IDiscoverViewCallb
 
 
 
-
-    @Override
-    public void onCache(List<String> blockStrings) {
-        Set<String> set = new HashSet<>(blockStrings);
-        SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
-        editor.putStringSet("blockStrings",set);
-        editor.apply();
-    }
-
-
     /**
      * 加载私人订制
      */
