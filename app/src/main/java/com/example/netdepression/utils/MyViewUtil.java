@@ -1,6 +1,7 @@
 package com.example.netdepression.utils;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.netdepression.DetailActivity;
 import com.example.netdepression.R;
 import com.example.netdepression.gson.PlaylistItem;
 
@@ -35,20 +37,6 @@ public class MyViewUtil {
         }
     }
 
-
-    /**
-     * 设置顶部状态栏透明且不作为布局的一部分测试
-     */
-    public static void seStatusBarTransparent555(Activity activity) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = activity.getWindow();
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-            //window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(Color.TRANSPARENT);
-
-        }
-    }
 
 
     /**
@@ -74,6 +62,12 @@ public class MyViewUtil {
     public static void loadPlaylistItem(List<PlaylistItem> playlistItems, ViewGroup container,boolean isVisible) {
         for (PlaylistItem playlistItem : playlistItems) {
             View view = LayoutInflater.from(MyApplication.getContext()).inflate(R.layout.playlist_item, container, false);
+            view.setOnClickListener(v -> {
+                Intent intent = new Intent(MyApplication.getContext(), DetailActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
+                intent.putExtra("id",playlistItem.id);
+                MyApplication.getContext().startActivity(intent);
+            });
             TextView mt = view.findViewById(R.id.playlist_name);
             TextView st = view.findViewById(R.id.playlist_description);
             ImageView cover = view.findViewById(R.id.cover_img);

@@ -15,7 +15,6 @@ import android.widget.RelativeLayout;
 import com.bumptech.glide.Glide;
 import com.example.netdepression.R;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class WaveImageView extends RelativeLayout {
@@ -105,7 +104,7 @@ public class WaveImageView extends RelativeLayout {
         //添加一个规则
         params_bg.addRule(RelativeLayout.CENTER_IN_PARENT,RelativeLayout.TRUE);
         /*添加中间图片*/
-        img_bg = new CircleImageView(context);
+        img_bg = new ImageView(context);
 
         addView(img_bg,params_bg);
     }

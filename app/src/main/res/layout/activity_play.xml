@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.example.netdepression.views.MaskImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/track_bg"
+        android:scaleType="centerCrop"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:fitsSystemWindows="true">
+
+
+        <Button
+            android:id="@+id/btn_exit"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:background="@drawable/exit"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="top"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/iv_music">
+
+            <ImageView
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/disk" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                app:cardCornerRadius="80dp"
+                app:cardElevation="0dp"
+                android:layout_gravity="center">
+                <ImageView
+                    android:id="@+id/track_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/ic_launcher"/>
+            </androidx.cardview.widget.CardView>
+
+        </FrameLayout>
+
+
+
+        <RelativeLayout
+            android:id="@+id/progress"
+            android:layout_below="@id/iv_music"
+            android:layout_marginTop="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+
+
+            <SeekBar
+                android:id="@+id/sb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progressBackgroundTint="#80FFFFFF" />
+
+
+            <TextView
+                android:layout_below="@id/sb"
+                android:layout_alignLeft="@id/sb"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/tv_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:text="00:00" />
+
+            <TextView
+                android:layout_below="@id/sb"
+                android:layout_alignRight="@id/sb"
+                android:layout_marginRight="10dp"
+                android:id="@+id/tv_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textColor="#fff"
+                android:text="00:00" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_below="@id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
+
+            <Button
+                android:id="@+id/btn_play"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/play"
+                />
+
+            <Button
+                android:id="@+id/btn_pause"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/pause"
+                android:layout_marginLeft="30dp"/>
+
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</FrameLayout>
+

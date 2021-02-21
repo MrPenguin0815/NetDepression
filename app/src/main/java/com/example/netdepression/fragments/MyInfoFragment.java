@@ -80,7 +80,7 @@ public class  MyInfoFragment extends BaseFragment implements IMyInfoViewCallback
         //显示用户名和id
         TextView nicknameView = view.findViewById(R.id.nickname);
         TextView uidView = view.findViewById(R.id.uid);
-        String s = "欢迎回来，" + nickname;
+        String s = "回来干嘛，" + nickname;
         nicknameView.setText(s);
         uidView.setText(userId);
     }

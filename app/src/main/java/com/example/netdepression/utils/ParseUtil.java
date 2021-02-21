@@ -6,8 +6,8 @@ import com.example.netdepression.base.CardlistItem;
 import com.example.netdepression.gson.Creative;
 import com.example.netdepression.gson.PlaylistBlock;
 import com.example.netdepression.gson.PlaylistItem;
-import com.example.netdepression.gson.TestRes;
 import com.example.netdepression.gson.Topic;
+import com.example.netdepression.gson.Track;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -169,4 +169,49 @@ public class ParseUtil {
         return null;
     }
 
+
+    /**
+     * 解析歌单详情
+     */
+    public static List<Track> handlePlayListDetail(String response) {
+        JSONObject playlistObject = null;
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            playlistObject = jsonObject.getJSONObject("playlist");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        PlaylistItem item = new Gson().fromJson(playlistObject.toString(),PlaylistItem.class);
+        return item.tracks;
+    }
+
+
+    /**
+     * 解析歌单作者信息
+     */
+    public static PlaylistItem handlePlayListCreator(String response) {
+        JSONObject playlistObject = null;
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            playlistObject = jsonObject.getJSONObject("playlist");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        PlaylistItem item = new Gson().fromJson(playlistObject.toString(),PlaylistItem.class);
+        return item;
+    }
+
+
+    public static String getMusicUrl(String response) {
+        String url = null;
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            JSONArray jsonArray = jsonObject.getJSONArray("data");
+            JSONObject data = jsonArray.getJSONObject(0);
+            url = data.getString("url");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return url;
+    }
 }

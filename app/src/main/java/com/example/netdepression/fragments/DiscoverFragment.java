@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -45,7 +46,6 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.zip.Inflater;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class DiscoverFragment extends BaseFragment implements IDiscoverViewCallback {
@@ -345,7 +345,7 @@ public class DiscoverFragment extends BaseFragment implements IDiscoverViewCallb
             mPresenter.unRegisterViewCallback(this);
         }
     }
-
+    
 //
 //    //以下实现自动轮播功能
 //    @Override
@@ -367,8 +367,8 @@ public class DiscoverFragment extends BaseFragment implements IDiscoverViewCallb
 //
 //
 //
-//    @SuppressLint("HandlerLeak")
-//    private final Handler handler=new Handler(){
+//
+//    private final Handler handler=new Handler(Looper.myLooper()){
 //        @Override
 //        public void handleMessage(@NonNull Message msg) {
 //            imgViewpager.setCurrentItem(currentItem);

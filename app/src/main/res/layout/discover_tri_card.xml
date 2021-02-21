@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="start"
     android:orientation="vertical"
     android:layout_marginTop="15dp"
@@ -52,17 +52,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/simple_cover_img1"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginRight="15dp" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            app:cardCornerRadius="30dp"
+            android:id="@+id/c1">
+
+            <ImageView
+                android:id="@+id/simple_cover_img1"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@mipmap/ic_launcher"
+                />
+
+
+        </androidx.cardview.widget.CardView>
+
+
 
         <TextView
             android:id="@+id/main_title1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/simple_cover_img1"
+            android:layout_toRightOf="@id/c1"
             android:textSize="16sp"
             android:textColor="@color/main_blue_gray"
             />
@@ -86,17 +99,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/simple_cover_img2"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginRight="15dp" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            app:cardCornerRadius="30dp"
+            android:id="@+id/c2">
+
+            <ImageView
+                android:id="@+id/simple_cover_img2"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@mipmap/ic_launcher"
+                />
+
+
+        </androidx.cardview.widget.CardView>
+
+
 
         <TextView
             android:id="@+id/main_title2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/simple_cover_img2"
+            android:layout_toRightOf="@id/c2"
             android:textSize="16sp"
             android:textColor="@color/main_blue_gray"
             />
@@ -121,17 +147,30 @@
         android:layout_height="wrap_content">
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/simple_cover_img3"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginRight="15dp" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            app:cardCornerRadius="30dp"
+            android:id="@+id/c3">
 
-    <TextView
+            <ImageView
+                android:id="@+id/simple_cover_img3"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@mipmap/ic_launcher"
+                />
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+        <TextView
         android:id="@+id/main_title3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/simple_cover_img3"
+        android:layout_toRightOf="@id/c3"
         android:textSize="16sp"
         android:textColor="@color/main_blue_gray"
         />

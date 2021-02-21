@@ -47,12 +47,22 @@
                 app:show_spacing_time="800"
                 android:layout_gravity="center"/>
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/avatar_img"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="40dp"
                 android:layout_gravity="center"
-                android:src="@mipmap/ic_launcher"/>
+                app:cardElevation="0dp">
+
+
+                <ImageView
+                    android:id="@+id/avatar_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@mipmap/ic_launcher"/>
+
+            </androidx.cardview.widget.CardView>
+
 
         </FrameLayout>
 

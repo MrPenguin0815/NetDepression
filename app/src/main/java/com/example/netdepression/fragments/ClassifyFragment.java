@@ -52,14 +52,6 @@ public class ClassifyFragment extends BaseFragment implements IClassifyViewCallb
         if (topic2Pic != null && topic1Pic != null){
             List<String> picUrls2 = ParseUtil.handleTopicDetailResponse(topic2Pic);
             List<String> picUrls1 = ParseUtil.handleTopicDetailResponse(topic1Pic);
-            for (String s : picUrls2) {
-
-                Log.e("picUrls2", "picUrls2:" + s);
-            }
-            for (String s : picUrls1) {
-
-                Log.e("picUrls1", "picUrls1:" + s);
-            }
             onTopic2PicLoaded(picUrls2);
             onTopic1PicLoaded(picUrls1);
         }else {
