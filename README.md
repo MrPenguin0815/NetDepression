@@ -36,7 +36,7 @@
 <br/>音乐播放：
 <br/>![image](app/音乐正常播放.jpg)
 <br/>![image](app/当歌曲无法播放.jpg)
-<br/>![image](app/音乐播放器实现.mp4)
+
 
 
 
